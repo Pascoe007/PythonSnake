@@ -34,10 +34,8 @@ while gameRunning:
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         gameRunning = False
         score.GameOver()
-    for s in snake.snakeBody:
-        if s == snake.head:
-            pass
-        elif snake.head.distance(s) < 10:
+    for s in snake.snakeBody[1:]:
+        if snake.head.distance(s) < 10:
             gameRunning = False
             score.GameOver()
 
