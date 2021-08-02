@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen, Turtle, distance
 import time
 from snake import Snake
 from food import Food
@@ -31,6 +31,15 @@ while gameRunning:
         food.RandomLocation()
         snake.IncreaseLenght()
         score.IncreaseScore()
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        gameRunning = False
+        score.GameOver()
+    for s in snake.snakeBody:
+        if s == snake.head:
+            pass
+        elif snake.head.distance(s) < 10:
+            gameRunning = False
+            score.GameOver()
 
 
     
