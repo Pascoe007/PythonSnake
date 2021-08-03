@@ -25,6 +25,14 @@ class Snake():
         s.color("white")
         s.goto(self.back.pos())
         self.snakeBody.append(s)
+    
+    def Reset(self):
+        for s in self.snakeBody:
+            s.goto(1000,1000)
+        self.snakeBody.clear()
+        self.CreateSnake()
+        self.head = self.snakeBody[0]
+
     def Move(self):
         for s in range(len(self.snakeBody)-1, 0, -1):
             self.snakeBody[s].goto(self.snakeBody[s-1].pos())
